@@ -1,0 +1,53 @@
+body {
+  background: #000;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.svgs {
+  display: none;
+}
+
+.random-word {
+  animation: 1s ease-in-out fadeUp;
+}
+
+.random-word svg {
+  stroke: #fff;
+  height: 75px;
+  width: 75px;
+  animation: drift 2s ease-in-out alternate infinite;
+  transform: rotate(-2deg) translateY(-2px);
+  transition: all 1s;
+}
+
+.random-word svg:hover {
+  cursor: pointer;
+}
+
+/*ANIMATIONS*/
+
+@keyframes drift {
+  from { transform: rotate(-2deg) translateY(-2px); }
+  to { transform: rotate(2deg) translateY(2px); }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
