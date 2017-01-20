@@ -12,7 +12,7 @@ function randomWord() {
 function randomWordComplete(data) {
   const letters = data.Word.toUpperCase().split('');
   const randy = document.querySelector('.random-word');
-  const html = letters.map(letter => `<svg><use href="#letter-${letter}"></use></svg>`);
+  const html = letters.map(letter => `<svg><use href="#letter-${letter}"></use></svg>`).join('');
 
   randy.innerHTML = html;
   setDelay();
