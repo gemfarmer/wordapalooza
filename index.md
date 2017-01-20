@@ -5,8 +5,40 @@
 layout: home
 ---
 
-<h1 class="random-word"></h1>
+<style media="screen">
+  body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    margin: 0;
+    padding: 0;
+  }
 
+  * {
+    box-sizing: border-box;
+  }
+
+  main {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+</style>
+
+<h1 class="random-word"></h1>
+<!-- <svg style="width: 200px; height: 200px;">
+<use xlink:href="https://css-tricks.com/wp-content/uploads/2015/05/kiwi.svg"></use>
+</svg>
+{% include svg.html name='A' %} -->
+<!-- <object data="img/bang.svg" type="image/svg+xml" id="something" height="200px" height="200px"></object>
+<object data="https://css-tricks.com/wp-content/uploads/2015/05/kiwi.svg" type="image/svg+xml" id="something" height="200px" height="200px"></object>
+
+<use xlink:href="./_includes/0.svg#Layer_1-2"></use> -->
 
 <script
   src="https://code.jquery.com/jquery-3.1.1.js"
@@ -26,7 +58,31 @@ layout: home
     }
 
     function RandomWordComplete(data) {
-    	document.querySelector('.random-word').innerHTML = data.Word
+    	var letters = data.Word.toUpperCase().split('')
+
+    	document.querySelector('.random-word')
+
+		var randy = document.querySelector('.random-word');
+		var svg = document.createElement('svg')
+
+		letters.forEach(function(letter) {
+			var object = appendObject(letter);
+			randy.append(object)
+		});
+    }
+
+    function appendObject (letter, id) {
+    	var object =  document.createElement('object')
+
+		object.setAttribute('data', 'img/' + letter + '.svg')
+		object.setAttribute('type', 'image/svg+xml')
+    object.setAttribute('class', 'letter')
+		object.setAttribute('id', letter)
+		object.setAttribute('height', '100vw')
+		object.setAttribute('width', '100vw')
+		object.setAttribute('fill', 'red')
+
+		return object
     }
 
     RandomWord();
