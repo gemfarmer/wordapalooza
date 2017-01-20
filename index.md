@@ -5,6 +5,31 @@
 layout: home
 ---
 
+<style media="screen">
+  body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  main {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+</style>
+
 <h1 class="random-word"></h1>
 <!-- <svg style="width: 200px; height: 200px;">
 <use xlink:href="https://css-tricks.com/wp-content/uploads/2015/05/kiwi.svg"></use>
@@ -35,7 +60,7 @@ layout: home
     function RandomWordComplete(data) {
     	var letters = data.Word.toUpperCase().split('')
 
-    	document.querySelector('.random-word') 
+    	document.querySelector('.random-word')
 
 		var randy = document.querySelector('.random-word');
 		var svg = document.createElement('svg')
@@ -51,9 +76,10 @@ layout: home
 
 		object.setAttribute('data', 'img/' + letter + '.svg')
 		object.setAttribute('type', 'image/svg+xml')
+    object.setAttribute('class', 'letter')
 		object.setAttribute('id', letter)
-		object.setAttribute('height', '40px')
-		object.setAttribute('width', '40px')
+		object.setAttribute('height', '100vw')
+		object.setAttribute('width', '100vw')
 		object.setAttribute('fill', 'red')
 
 		return object
